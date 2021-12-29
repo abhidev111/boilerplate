@@ -23,4 +23,8 @@ router.put("/users/:id",(req,res)=>{
     res.send("router info");
 })
 
+router.get("/users/",(req,res)=>{
+//getby username email    res.send("router info");
+})
+
 module.exports = router;
