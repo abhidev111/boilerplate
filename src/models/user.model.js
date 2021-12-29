@@ -22,7 +22,13 @@ var usersSchema = new mongoose.Schema({
         required: 'Password can\'t be empty',
         minlength: [4, 'Password must be atleast 4 character long']
     },
-    saltSecret: String
+    saltSecret: String,
+    lastActiveAt: Date,
+    profile_created_at :Date,
+    profile_updated_at :Date
 })
+
+module.exports = mongoose.model('Users', userSchema);
+
 
 
