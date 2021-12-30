@@ -38,8 +38,8 @@ router.post("/login",async (req,res)=>{
     const validPassword = await bcrypt.compare(req.body.password , user.password)
     !validPassword && res.status(400).json("Wrong password")
     
-    //valid
-    res.status(200).json(user)
+    //if user is valid it responds with a JWT token
+    res.status(200).json({ "token": user.generateJwt() });
     }
 
     catch(err){
