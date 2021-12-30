@@ -1,43 +1,15 @@
 const router = require('express').Router();
 const User = require('../models/user.model');
+const authController = require('../../src/controllers/auth.controllers')
 const bcrypt = require('bcrypt')
 
 
-router.post("/register", async (req, res) => {
 
-    try {
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(req.body.password, salt)
 
-        const user = await new User({
-            fullName: req.body.fullName,
-            userName: req.body.userName,
-            email: req.body.email,
-            password: hashedPassword
-        })
+router.post("/register", authController.register) //business logic implemented in auth controller
 
-        user.save((err, responseObj) => {
-            if (err) {
-              if (err.code == 11000) {
-                res.status(422).send(['Duplicate email address found'])
-              }
-              else {
-                return next(err);
-        
-              }
-            }
-            else {
-              res.send({ status: 200, message: 'User registered successfully', results: responseObj });
-            }
-          })
+   
 
-        }
-    catch (err) {
-        console.log(err)
-    }
-
- 
-})
 
 
 router.post("/login", async (req, res) => {
