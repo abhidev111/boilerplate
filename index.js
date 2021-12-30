@@ -6,7 +6,7 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 
 const usersRoute = require('./src/routes/users');
-
+const authRoute = require('./src/routes/auth')
 
 dotenv.config();
 //middlewares
@@ -19,7 +19,8 @@ app.get("/ping",(req,res)=>{
     res.send("HOHO Welcome to Socially  !!")
 })
 
-app.use("users/", usersRoute);
+app.use("/users", usersRoute);
+app.use("/auth",authRoute)
 
 
 
@@ -29,12 +30,12 @@ app.listen(PORT, ()=>{
 })
 
 
-// mongoose.connect(process.env.MONGO_URL, (err)=>{
-//     if(!err){
-//         console.log("successfully connected to mongoDB")
-//     }
-//     else{
-//         console.log("Coudn't connect to mongoDB")
-//     }
-// });
+mongoose.connect(process.env.MONGO_URL, (err)=>{
+    if(!err){
+        console.log("successfully connected to mongoDB")
+    }
+    else{
+        console.log("Coudn't connect to mongoDB")
+    }
+});
 
