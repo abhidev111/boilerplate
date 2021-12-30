@@ -5,23 +5,13 @@ console.log("hello")
 
 //update user 
 router.put("/:id",async(req,res)=>{
-    
+
 })
 
 //delete user
-
-
 //get a user
-
 //follow a user 
-
-
 //unfollow a user
-
-
-
-
-
 
 router.get("/users/:id",(req,res)=>{
     res.send("router info");
