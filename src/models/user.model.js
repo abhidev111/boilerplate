@@ -37,7 +37,11 @@ var userSchema = new mongoose.Schema({
         type : Array,
         default : []
     },
-    saltSecret: String,
+    // saltSecret: String,
+    description :{
+        type : String,
+        max : 60
+    }
     
 },{ timestamps : true })
 

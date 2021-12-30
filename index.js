@@ -19,8 +19,9 @@ app.get("/ping",(req,res)=>{
     res.send("HOHO Welcome to Socially  !!")
 })
 
+
+app.use("/auth", authRoute)
 app.use("/users", usersRoute);
-app.use("/auth",authRoute)
 
 
 

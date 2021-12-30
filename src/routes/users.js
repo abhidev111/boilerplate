@@ -2,18 +2,26 @@ const router = require('express').Router();
 
 console.log("hello")
 
-router.post("/users/signup",(req,res)=>{
-    console.log("hello inside");
-    res.send("router info");
+
+//update user 
+router.put("/:id",async(req,res)=>{
+    
 })
 
-router.post("/login",(req,res)=>{
-    res.send("router info");
-})
+//delete user
 
-router.post("/users/emailvrify",(req,res)=>{
-    res.send("router info");
-})
+
+//get a user
+
+//follow a user 
+
+
+//unfollow a user
+
+
+
+
+
 
 router.get("/users/:id",(req,res)=>{
     res.send("router info");
