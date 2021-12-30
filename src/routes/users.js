@@ -8,26 +8,26 @@ console.log("hello")
 
 
 //get a self profile
-router.get('/userProfile', jwtHelper.verifyJwtToken, userController.userProfile );  
+router.get('/userProfile', jwtHelper.verifyJwtToken, userController.userProfile);
 
 //update user 
-router.put("/:id",async(req,res)=>{
+router.put("/:id", async (req, res) => {
 
 })
 
 //delete user
-   
-    
+
+
 //follow a user 
 
 
 //unfollow a user
 
-router.get("/users/:id",(req,res)=>{
+router.get("/users/:id", (req, res) => {
     res.send("router info");
 })
 
-router.put("/users/:id",(req,res)=>{
+router.put("/users/:id", (req, res) => {
     res.send("router info");
 })
 

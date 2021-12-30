@@ -15,7 +15,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 
-app.get("/ping",(req,res)=>{
+app.get("/ping", (req, res) => {
     res.send("HOHO Welcome to Socially  !!")
 })
 
@@ -26,16 +26,16 @@ app.use("/users", usersRoute);
 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log("Backend server is ready...")
 })
 
 
-mongoose.connect(process.env.MONGO_URL, (err)=>{
-    if(!err){
+mongoose.connect(process.env.MONGO_URL, (err) => {
+    if (!err) {
         console.log("successfully connected to mongoDB")
     }
-    else{
+    else {
         console.log("Coudn't connect to mongoDB")
     }
 });

@@ -20,7 +20,7 @@ var userSchema = new mongoose.Schema({
     },
     isEmailVerified: {
         type: Boolean,
-        default:false
+        default: false
     },
     password: {
         type: String,
@@ -42,7 +42,7 @@ var userSchema = new mongoose.Schema({
     // saltSecret: String,
     description: {
         type: String,
-        default:"hey there I am on Socially",
+        default: "hey there I am on Socially",
         max: 60
     }
 
