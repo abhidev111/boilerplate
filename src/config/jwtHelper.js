@@ -11,7 +11,7 @@ module.exports.verifyJwtToken = (req, res, next) => {
         return res.status(403).send({ auth: false, message: "No token provided" });
     }
     else { //console.log(token);
-        jwt.verify(token, "SECRET#123",
+        jwt.verify(token, process.env.SECRET_KEY,
             (err, decoded) => {
                 if (err) { return res.status(500).send({ auth: false, message: "Token authentication Failed or token maybe expired" }); }
 

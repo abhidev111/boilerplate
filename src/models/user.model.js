@@ -50,7 +50,7 @@ var userSchema = new mongoose.Schema({
 
 userSchema.methods.generateJwt = function () {
     return jwt.sign({ _id: this._id },
-        "SECRET#123",                   /////this secret key shuld be in env
+        process.env.SECRET_KEY,                   /////this secret key shuld be in env
         { expiresIn: '20m' });          // jwt token expires in 20 min
 }
 
