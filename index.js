@@ -23,7 +23,12 @@ app.get("/ping", (req, res) => {
 app.use("/auth", authRoute)
 app.use("/users", usersRoute);
 
-
+app.use((err, req, res, next) => {
+        var valErrors = [];
+        Object.keys(err.errors).forEach(key => valErrors.push(err.errors[key].message));
+        res.status(422).send(valErrors)
+    
+  });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

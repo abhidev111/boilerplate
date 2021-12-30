@@ -25,7 +25,7 @@ var userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: 'Password can\'t be empty',
-        minlength: [6, 'Password must be atleast 4 character long']
+        minlength: [6, 'Password must be atleast 6 character long']
     },
     profilePicture: {
         type: String,

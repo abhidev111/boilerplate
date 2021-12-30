@@ -16,15 +16,27 @@ router.post("/register", async (req, res) => {
             password: hashedPassword
         })
 
-        const userCreated = await user.save();
-        res.status(200).json(userCreated);
-    }
+        user.save((err, responseObj) => {
+            if (err) {
+              if (err.code == 11000) {
+                res.status(422).send(['Duplicate email address found'])
+              }
+              else {
+                return next(err);
+        
+              }
+            }
+            else {
+              res.send({ status: 200, message: 'User registered successfully', results: responseObj });
+            }
+          })
+
+        }
     catch (err) {
         console.log(err)
     }
 
-    await user.save();
-    res.send("ok");
+ 
 })
 
 
