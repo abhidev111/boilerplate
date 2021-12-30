@@ -1,9 +1,14 @@
 const router = require('express').Router();
 const User = require('../models/user.model');
-const jwtHelper = require('../config/jwtHelper')
+const jwtHelper = require('../config/jwtHelper');
+const userController = require('../../src/controllers/user.controllers')
+const _ = require('lodash');
 
 console.log("hello")
 
+
+//get a self profile
+router.get('/userProfile', jwtHelper.verifyJwtToken, userController.userProfile );  
 
 //update user 
 router.put("/:id",async(req,res)=>{
@@ -11,19 +16,11 @@ router.put("/:id",async(req,res)=>{
 })
 
 //delete user
-//get a user
-router.get('/userProfile', jwtHelper.verifyJwtToken,  (req, res, next)=> {   //function (req, res, next)
-    User.findOne({ _id: req._id },
-      (err, user) => {
-        if (!user)
-          return res.status(404).json({ status: false, message: "User record not found" });
-        else
-          return res.status(200).json({ status: true, user });
-      }
-    )
-  
-  });
+   
+    
 //follow a user 
+
+
 //unfollow a user
 
 router.get("/users/:id",(req,res)=>{
@@ -34,8 +31,6 @@ router.put("/users/:id",(req,res)=>{
     res.send("router info");
 })
 
-router.get("/users",(req,res)=>{
-//getby username email    res.send("router info");
-})
+
 
 module.exports = router;

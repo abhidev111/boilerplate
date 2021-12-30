@@ -19,7 +19,8 @@ var userSchema = new mongoose.Schema({
         type: String
     },
     isEmailVerified: {
-        type: Boolean
+        type: Boolean,
+        default:false
     },
     password: {
         type: String,
@@ -28,7 +29,7 @@ var userSchema = new mongoose.Schema({
     },
     profilePicture: {
         type: String,
-        default: ""
+        default: ""   //here we will store the links of profile photo which are stored in amazon s3 or some remote storage
     },
     followers: {
         type: Array,
@@ -41,6 +42,7 @@ var userSchema = new mongoose.Schema({
     // saltSecret: String,
     description: {
         type: String,
+        default:"hey there I am on Socially",
         max: 60
     }
 
