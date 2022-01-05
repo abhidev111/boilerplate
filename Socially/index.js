@@ -21,7 +21,7 @@ app.get("/ping", (req, res) => {
 
 
 app.use("/auth", authRoute)
-app.use("/users", usersRoute);
+app.use("/users", usersRoute)
 
 app.use((err, req, res, next) => {
         var valErrors = [];
@@ -42,6 +42,7 @@ mongoose.connect(process.env.MONGO_URL, (err) => {
     }
     else {
         console.log("Coudn't connect to mongoDB")
+        console.log(err)
     }
 });
 

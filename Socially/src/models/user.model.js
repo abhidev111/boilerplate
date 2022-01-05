@@ -12,10 +12,16 @@ var userSchema = new mongoose.Schema({
         required: 'Username can\'t be empty',
         min: 4,
         max: 20,
-        unique: true
+        unique: true,
+        trim : true
     },
 
     email: {
+        type: String,
+        lowercase :true,
+        trim : true
+    },
+    emailToken: {
         type: String
     },
     isEmailVerified: {
@@ -50,7 +56,7 @@ var userSchema = new mongoose.Schema({
 
 userSchema.methods.generateJwt = function () {
     return jwt.sign({ _id: this._id },
-        process.env.SECRET_KEY,                   /////this secret key shuld be in env
+        process.env.SECRET_KEY,                   
         { expiresIn: '20m' });          // jwt token expires in 20 min
 }
 

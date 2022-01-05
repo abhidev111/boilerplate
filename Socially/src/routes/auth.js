@@ -6,10 +6,15 @@ const bcrypt = require('bcrypt')
 
 
 
-router.post("/register", authController.register) //business logic implemented in auth controller
+
+
+
+
+
+router.post("/register", authController.register)  //business logic implemented in auth controller
 
    
-
+// router.post()
 
 
 router.post("/login", async (req, res) => {
@@ -29,6 +34,10 @@ router.post("/login", async (req, res) => {
     catch (err) {
         console.log(err)
     }
+})
+
+router.get("/verify-email",(req,res)=>{
+    
 })
 
 module.exports = router;
